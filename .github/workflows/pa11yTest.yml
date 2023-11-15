@@ -29,7 +29,7 @@ jobs:
           cache: 'npm'
 #Installs the dependencies required for running the tests.
       - name: install pa11y-ci dependencies
-        run: npm install
+        run:  npm install --save-dev pa11y-ci
 #runs pa11y & prints results 
       - name: run pa11y-ci and print results
         run: npm run test-pa11y
