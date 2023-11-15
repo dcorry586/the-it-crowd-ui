@@ -1,11 +1,14 @@
 # This is a basic workflow to help you get started with Actions
-name: jmeterTest
+name: JMeter Test
 
 # Controls when the workflow will run
 on:
 #  Will run on 6pm every weekday
   schedule:
     - cron: "0 18 * * 1-5"
+    
+  pull_request:
+    branches: [ "main" ]
 
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,6 +29,10 @@ jobs:
         uses: QAInsights/PerfAction@v3.1
         with:
         # jmeter test plan to execute
-          test-plan-path: './The-IT-Crowd-PTest'
-
-
+          test-plan-path: './The-IT-Crowd-PTest.jmx'
+#      Uploads the ressuts of the Jmeter test
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-results
+          path: result.jtl
