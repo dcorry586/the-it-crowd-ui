@@ -8,7 +8,9 @@
     }
   },
   
- "urls": ["https://9miwn7w3uh.eu-west-1.awsapprunner.com/jobs"],
- "url": ["https://www.kainos.com/"]
+  "urls": [
+    "https://9miwn7w3uh.eu-west-1.awsapprunner.com/jobs",
+    "https://www.kainos.com/"
+  ]
 
 }
