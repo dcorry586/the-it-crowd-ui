@@ -9,6 +9,7 @@
     "timeout": 1000
   },
 
-  "urls": ["https://mgf63d3g3p.eu-west-1.awsapprunner.com/api/jobs"]
+  "urls": ["https://mgf63d3g3p.eu-west-1.awsapprunner.com/api/jobs"],
+  "url": ["https://www.kainos.com/"]
 
 }
