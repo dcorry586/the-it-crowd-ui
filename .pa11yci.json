@@ -8,11 +8,9 @@
     },
     "timeout": 1000,
     "chromeLaunchConfig": {
-      "args": ["--no-sandbox"]
-    }
-        "timeout": 1000,
-    "chromeLaunchConfig": {
-      "args": ["--no-sandbox"]
+      "args": [
+        "--no-sandbox"
+      ]
     }
   },
   
