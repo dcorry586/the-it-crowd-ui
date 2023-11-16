@@ -5,6 +5,10 @@
     "runners": ["axe"],
     "page": {
       "viewport": {"width": 320, "height": 480}
+    },
+    "timeout": 1000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
     }
   },
   
