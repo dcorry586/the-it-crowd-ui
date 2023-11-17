@@ -9,7 +9,7 @@
     "coverage-unit": "nyc npm run test-unit",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint --fix . --ext .ts",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci"
+    "test-pa11y": "pa11y-ci"
   },
   "repository": {
     "type": "git",
