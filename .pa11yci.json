@@ -6,7 +6,7 @@
     "page": {
       "viewport": {"width": 320, "height": 480}
     },
-    "timeout": 1000,
+    "timeout": 50000,
     "chromeLaunchConfig": {
       "args": [
         "--no-sandbox"
