@@ -1,13 +1,12 @@
 {
 
   "default": {
-    "concurrency": 4,
-    "standard": "WCAG2A",
+    "standard": "WCAG2AA",
     "runners": ["axe"],
     "page": {
       "viewport": {"width": 320, "height": 480}
     },
-    "timeout": 1000,
+    "timeout": 60000,
     "chromeLaunchConfig": {
       "args": [
         "--no-sandbox"
@@ -16,7 +15,7 @@
   },
   
   "urls": [
-    "https://www.gov.uk/government/organisations/hm-passport-office"
+     "https://www.gov.uk/government/organisations/hm-passport-office"
   ]
 
 }

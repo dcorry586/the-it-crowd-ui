@@ -1,7 +1,7 @@
 {
   "name": "the-it-crowd-ui",
   "version": "1.0.0",
-  "description": "## Using Cloud Instance:  - There is a AWS UI cloud instance at ```https://9miwn7w3uh.eu-west-1.awsapprunner.com/```",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "npx tsc && cp -R views dist && cp -R public dist && node dist/app.js",
@@ -9,8 +9,7 @@
     "coverage-unit": "nyc npm run test-unit",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint --fix . --ext .ts",
-    "start-detached": "bundle exec jekyll serve --detach",
-    "test-pa11y": "pa11y-ci "
+    "test-pa11y": "pa11y-ci"
   },
   "repository": {
     "type": "git",
@@ -43,11 +42,8 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "pa11y-ci": "^3.1.0",
+    "pa11y-ci": "^2.4.2",
     "puppeteer": "~1.6.0",
     "ts-mocha": "^10.0.0"
-  },
-  "directories": {
-    "test": "test"
   }
 }
