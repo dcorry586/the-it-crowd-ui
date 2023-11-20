@@ -1,19 +1,12 @@
 {
-
-  "default": {
+  "defaults": {
     "standard": "WCAG2AA",
     "runners": ["axe"],
     "page": {
       "viewport": {"width": 320, "height": 480}
     },
     "timeout": 60000,
-    "chromeLaunchConfig": {
-      "args": [
-        "--no-sandbox"
-      ]
-    }
   },
-  
   "urls": [
     "https://www.gov.uk/government/organisations/hm-passport-office",
     "https://9miwn7w3uh.eu-west-1.awsapprunner.com/",
