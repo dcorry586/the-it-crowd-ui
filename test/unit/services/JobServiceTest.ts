@@ -46,4 +46,21 @@ describe('JobService', function () {
         }
         expect(String(error)).to.equal('Error: Could not get jobs');
     });
+
+    it('should delete a job role when the delete button is triggered', async () => {
+        mock.onDelete(`/api/jobs/${job[0].jobId}`).reply(204);
+        await jobService.deleteJobRole(job[0].jobId);
+        expect(mock.history.delete).to.have.lengthOf.at.least(1);
+    });
+
+    it('should return an Error message if delete is unsuccessful', async () => {
+        mock.onDelete(`/api/jobs/${job[0].jobId}`).reply(new Error('Unable to delete specified job ID'));
+        let error: string;
+        try {
+            await jobService.deleteJobRole(job[0].jobId);
+        } catch (e) {
+            error = e;
+        }
+        expect(String(error)).to.equal('Error: Unable to delete specified job ID');
+    });
 });

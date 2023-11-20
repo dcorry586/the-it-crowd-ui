@@ -7,12 +7,12 @@
 
 <%- include('../templates/components/common-nav'); %>
 
-<div class="header-image-banner">
-  <div class="overlay"></div>
-  <div class="text-overlay">
-      <h1>Find the perfect role for you</h1>
+  <div class="header-image-banner">
+    <div class="overlay"></div>
+    <div class="text-overlay">
+        <h1>Find the perfect role for you</h1>
+    </div>
   </div>
-</div>
 
 <div class="main-content centre">
   <div class="row">
@@ -22,26 +22,46 @@
         <% if (jobs.length > 0) { %>
           <% for (let job of jobs) { %>
 
-            <li>
-              <a href="/jobs/<%= job.jobId %>">
-                <%= job.jobName %> - <%= job.bandName %>
-              </a>
-            </li>
+              <li>
+                <a href="/jobs/<%= job.jobId %>">
+                  <%= job.jobName %> - <%= job.bandName %>
+                </a>
 
+                <form action="/jobs/<%= job.jobId %>" method="post" id="delete-form">
+                  <button type="submit" class="btn btn-danger" id="delete-button" onclick="areYouSure('<%= job.jobName %>');">Delete</button>
+                </form>
+              </li>
+
+            <% } %>
+          <% } else { %>
+            <li>No jobs currently available</li>
           <% } %>
-        <% } else { %>
-
-          <li>No jobs available</li>
-          
-        <% } %>
-      </ul>
-    </div>
-    <div class="col-6">
-      <img src="/public/assets/academy2.jpeg" class="half-page-image" alt="Kainos employees watching a presentation in the office">
+        </ul>
+      </div>
+      <div class="col-6">
+        <img src="/public/assets/academy2.jpeg" class="half-page-image" alt="Kainos employees watching a presentation in the office">
+      </div>
     </div>
   </div>
-</div>
 
-<%- include('../templates/components/common-footer'); %>
+  <%- include('../templates/components/common-footer'); %>
 
+  <script>
+    function areYouSure(jobName) {
+        const deleteButton = document.getElementById("delete-button");
+        const deleteForm = document.getElementById("delete-form");
+
+        // Show a confirmation message
+        const confirmDelete = confirm("Are you sure you want to delete this job?");
+
+        // If the user clicks yes, show a pop-up message and submit the form
+        if (confirmDelete) {
+            alert(`${jobName} was deleted`);
+            deleteForm.submit();
+        } else {
+            // If the user clicks no, then do nothing
+            event.preventDefault();
+        }
+    }
+</script>
 </html>

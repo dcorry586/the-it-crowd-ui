@@ -23,6 +23,8 @@
 
 .half-page-image {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #header-left-spacing {
@@ -156,6 +158,10 @@ li a:hover {
 .custom-button:hover {
     background-color: #3f9746;
     color: white;
+}
+
+#job-role-list-item li {
+    float: left;
 }
 
 /* Media query for screens smaller than 991px, which is when the navbar turns into a burger bar */
