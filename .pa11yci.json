@@ -1,11 +1,12 @@
 {
-  "defaults": {
+  "default": {
+    "concurrency": 4,
     "standard": "WCAG2AA",
     "runners": ["axe"],
     "page": {
       "viewport": {"width": 320, "height": 480}
     },
-    "timeout": 60000,
+    "timeout": 60000
   },
   "urls": [
     "https://www.gov.uk/government/organisations/hm-passport-office",
