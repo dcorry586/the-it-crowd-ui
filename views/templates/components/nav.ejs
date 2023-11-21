@@ -1,46 +1,56 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/public/customNavStyle.css">
+<link rel="stylesheet" href="/public/navStyle.css">
 
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md navbar-dark custom-nav center">
-        <a href="/" ><img src="/public/kainoos.png" style="width: 140px;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+<!-- Bootstrap JS, Popper.js, and jQuery scripts for navbar toggle -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<nav class="navbar navbar-light navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <!-- left hand side logo -->
+        <a href="/">
+            <img src="/public/assets/logo.png" alt="Kainos Logo" id="logo-sizing">
+        </a>
+
+        <!-- navbar burger bar for smaller/responsive screens -->
+        <button class="navbar-toggler fancy" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav"
+                aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
 
-            <ul class="navbar-nav floatRight" style="padding-right: 60px;">
-                <% if (typeof token == 'undefined') { %>
+        <!-- right hand side navbar links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbar-nav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login" id="nav-cust-link" style="margin-top: 1px;">Login</a>
+                    <a class="custom-nav-link-style" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn disabled" id="nav-cust-link">Sign-Up</a>
+                    <a class="custom-nav-link-style" href="/jobs">Jobs</a>
                 </li>
-                <% } else { %>
+                <li class="nav-item">
+                    <div id="dropdown-background-when-small">
+                        <div class="nav-item dropdown">
+                        <% if (typeof token == 'undefined') { %>
+                            <a class="custom-nav-link-style dropdown-toggle" href="#" id="contactDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="contactDropdown" id="dropdown-box">
+                                <a class="dropdown-item" href="/">Login</a>
+                                <a class="dropdown-item" href="/">Register</a>
+                            </div>
+                        <% } else { %>
                 <li class="nav-item">
                     <form method="post" action="/logout">
                         <input type="hidden" name="name" value="value" />
                         <a class="nav-link" id="nav-cust-link" style="cursor: pointer;" onclick="this.parentNode.submit();">Logout</a>
                       </form>
               </li>
-              <% } %>
+                         <% } %>
+                        </div>
+                    </div>
+                </li>
             </ul>
-
-            <% if (typeof token != 'undefined') { %>
-            <div class="nav-item floatRight">
-                <a href="javascript:void(0);" class="icon nav-link" id="hamburger-menu" onclick="hamburgerController()">
-                    <i class="fa fa-bars fa-xs" id="hamburger-menu-open"></i>
-                    <i class="fa fa-times hidden" aria-hidden="true" id="hamburger-menu-close"></i>
-                </a>
-            </div>
-            <% } %>
         </div>
-    </nav>
-</div>
-
-<div id="navItemsLower">
-    <div style="background-color: rgb(255, 255, 255); padding-left: 10vw;">
-        <a class="nav-link navLinkItemCustom" href="/" id="nav-cust-link">Home</a>
     </div>
-</div>
+</nav>

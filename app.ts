@@ -38,3 +38,4 @@ app.get('/', (req: Request, res: Response) => {
 
 require('./controllers/ConnectionController')(app);
 require('./controllers/JobsController')(app);
+require('./controllers/HomeController')(app);
