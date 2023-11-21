@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "concurrency": 1,
+    "standard": "WCAG2AA",
+    "runner": [
+      "axe"
+    ],
+    "chromeLaunchConfig": {
+      "args": [
+        "--no-sandbox"
+      ]
+    },
+    "timeout": 60000
+  },
+  "urls": [
+    "https://9miwn7w3uh.eu-west-1.awsapprunner.com/",
+    "https://9miwn7w3uh.eu-west-1.awsapprunner.com/jobs"
+  ]
+}
