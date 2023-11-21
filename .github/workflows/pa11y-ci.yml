@@ -1,0 +1,18 @@
+# This is a basic workflow to help you get started with Actions
+
+name: pa11y-ci
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pa11y-ci:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v3
+        - name: NPM install
+          uses: npm install
+        - name: Run pa11y-ci
+          run: npm run test-pa11y
