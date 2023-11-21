@@ -1,6 +1,7 @@
 import { Request, Response, Application } from 'express';
 import { Job } from '../models/Job';
 import JobService from '../services/JobService';
+import { JobSingle } from '../models/JobSingle';
 
 let jobService = new JobService();
 
@@ -16,7 +17,7 @@ module.exports = function (app: Application) {
     });
     app.get('/jobs/:id', async (req: Request, res: Response) => {
         const id = req.params.id;
-        let job: Job;
+        let job: JobSingle;
         try {
             job = await jobService.getJobById(Number(id));
         } catch (e) {

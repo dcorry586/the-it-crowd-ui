@@ -27,7 +27,7 @@ describe('JobService', function () {
     });
 
     it('should throw an error when the API returns a non-200 status', async () => {
-        mock.onGet('/api/jobs').reply(new Error('Could not get jobs'));
+        mock.onGet('/api/jobs').reply(500);
         let error: string;
         try {
             await jobService.getJobs();

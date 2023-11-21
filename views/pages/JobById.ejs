@@ -23,10 +23,26 @@
 
   <div class="main-content centre">
 
+    <a href="/jobs/">Back to Job Roles</a>
+
     <h2>Job Name</h2>
     <p>
       <%= job.jobName %>
     </p>
+
+    <h2>Band</h2>
+    <p>
+      <%= job.bandName %>
+    </p>
+
+    <h2>Job Responsibilities</h2>
+    <ul>
+      <% for (let responsibility of job.responsibilities ) { %>
+        <li>
+          <%= responsibility %>
+        </li>
+        <% } %>
+    </ul>
 
     <h2>Job Spec</h2>
     <a href="<%= job.jobSpecUrl%>" target="_blank">
