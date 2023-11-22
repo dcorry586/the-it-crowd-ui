@@ -1,4 +1,4 @@
-export class JobSingle  {
+export class JobRole  {
     jobId: number;
     jobName: string;
     jobSpecUrl: string;

@@ -36,6 +36,7 @@
     </p>
 
     <h2>Job Responsibilities</h2>
+    <% if (job.responsibilities.length > 0) { %>
     <ul>
       <% for (let responsibility of job.responsibilities ) { %>
         <li>
@@ -43,6 +44,9 @@
         </li>
         <% } %>
     </ul>
+    <% } else { %>
+      <p>No job responsibilities are currently available for the this role</p>
+    <% } %>
 
     <h2>Job Spec</h2>
     <a href="<%= job.jobSpecUrl%>" target="_blank">

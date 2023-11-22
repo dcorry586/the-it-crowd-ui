@@ -1,6 +1,6 @@
 import axiosInstance from '../config';
 import { Job } from '../models/Job';
-import { JobSingle } from '../models/JobSingle';
+import { JobRole } from '../models/JobRole';
 
 export default class JobService {
     async getJobs(): Promise<Job[]> {
@@ -12,7 +12,7 @@ export default class JobService {
         }
     }
 
-    async getJobById(id: number): Promise<JobSingle> {
+    async getJobById(id: number): Promise<JobRole> {
         try {
             const response = await axiosInstance.get(`/api/jobs/${id}`);
             return response.data;
