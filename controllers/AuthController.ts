@@ -3,6 +3,8 @@ import { Login } from '../models/Auth';
 import AuthService from '../services/AuthService';
 
 module.exports = function (app: Application) {
+    let authService = new AuthService();
+
     app.get('/login', async (req: Request, res: Response) => {
         res.render('pages/login', { pageTitle: 'Login Page', token: req.session.token });
     });
@@ -11,13 +13,8 @@ module.exports = function (app: Application) {
 
         try {
             let data: Login = req.body;
-            let authService = new AuthService();
 
             req.session.token = await authService.loginInUser(data);
-            // if (tokenRes == null) {
-            //     throw new Error('Failed To Get Token.');
-            // }
-            // req.session.token = tokenRes;
             res.redirect('/');
 
         } catch (e) {
