@@ -27,12 +27,12 @@ app.listen(3000, () => {
 });
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-  if (req.session.token !== undefined && req.session.token.length > 0) {
-      res.locals.sessionValid = true;
-  } else {
-      res.locals.sessionValid = false;
-  }
-  next();
+    if (req.session.token !== undefined && req.session.token.length > 0) {
+        res.locals.sessionValid = true;
+    } else {
+        res.locals.sessionValid = false;
+    }
+    next();
 });
 
 require('./controllers/AuthController')(app);

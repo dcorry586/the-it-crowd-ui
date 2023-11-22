@@ -12,7 +12,7 @@ module.exports = function(app: Application) {
             };
             res.render('pages/home', {
                 pageTitle: 'Kainos Careers Portal',
-                banner, 
+                banner,
                 token
             });
         } catch (error) {

@@ -19,7 +19,7 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
                 token: req.session.token};
             res.render('pages/login', payload);
         }
-        
+
         next();
     } else {
         res.redirect('/login');
