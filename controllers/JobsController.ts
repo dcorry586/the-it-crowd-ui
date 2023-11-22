@@ -22,6 +22,6 @@ module.exports = function (app: Application) {
         } catch (e) {
             console.error(e);
         }
-        res.render('pages/JobById', { job, pageTitle: 'Job' });
+        res.render('pages/job', { job, pageTitle: 'Job' });
     });
 };
