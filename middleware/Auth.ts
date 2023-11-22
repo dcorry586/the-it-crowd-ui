@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
-    if (req.session.token && req.session.token.length > 0) {
+    if (res.locals.sessionValid) {
 
         let token: String = req.session.token;
 
@@ -14,11 +14,12 @@ module.exports = function (req: Request, res: Response, next: NextFunction) {
 
         if (jwtExpiry <= current ) {
             // Token Has Expired. -> Redirect To Login Page.
+            res.locals.sessionValid = false;
             let payload = {pageTitle: 'Session Expired', errormessage: 'Token Has Expired, Please Login Again.',
                 token: req.session.token};
             res.render('pages/login', payload);
         }
-
+        
         next();
     } else {
         res.redirect('/login');

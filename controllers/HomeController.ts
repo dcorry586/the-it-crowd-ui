@@ -3,6 +3,7 @@ import {Request, Response, Application} from 'express';
 module.exports = function(app: Application) {
     app.get('/', (req: Request, res: Response)=>{
         try {
+            const { token } = req.session;
             const banner = {
                 dynamicImage: 'public/assets/academy1.jpeg',
                 dynamicText: 'Where your future begins',
@@ -11,7 +12,8 @@ module.exports = function(app: Application) {
             };
             res.render('pages/home', {
                 pageTitle: 'Kainos Careers Portal',
-                banner,
+                banner, 
+                token
             });
         } catch (error) {
             console.error(error.message);

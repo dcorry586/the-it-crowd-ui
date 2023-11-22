@@ -14,7 +14,7 @@
 
         <!-- navbar burger bar for smaller/responsive screens -->
         <button class="navbar-toggler fancy" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav"
-                aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -30,23 +30,23 @@
                 <li class="nav-item">
                     <div id="dropdown-background-when-small">
                         <div class="nav-item dropdown">
-                        <% if (typeof token == 'undefined') { %>
                             <a class="custom-nav-link-style dropdown-toggle" href="#" id="contactDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Account
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
                             </a>
                             <div class="dropdown-menu" aria-labelledby="contactDropdown" id="dropdown-box">
-                                <a class="dropdown-item" href="/">Login</a>
-                                <a class="dropdown-item" href="/">Register</a>
+                                <% if (!sessionValid) { %>
+                                    <a class="dropdown-item" href="/login">Login</a>
+
+                                    <% } else { %>
+                                        <form method="post" action="/logout">
+                                            <a class="dropdown-item" id="nav-cust-link" style="cursor: pointer;"
+                                                onclick="this.parentNode.submit();">
+                                                Logout
+                                            </a>
+                                        </form>
+                                        <% } %>
                             </div>
-                        <% } else { %>
-                <li class="nav-item">
-                    <form method="post" action="/logout">
-                        <input type="hidden" name="name" value="value" />
-                        <a class="nav-link" id="nav-cust-link" style="cursor: pointer;" onclick="this.parentNode.submit();">Logout</a>
-                      </form>
-              </li>
-                         <% } %>
                         </div>
                     </div>
                 </li>
