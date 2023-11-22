@@ -6,8 +6,10 @@
         <h1>
             <%= banner.dynamicText %>
         </h1>
+        <% if (!sessionValid) { %>
         <a href="<%= banner.dynamicUrl %>"><button>
                 <%= banner.buttonText %>
             </button></a>
+        <% } %>
     </div>
 </div>
