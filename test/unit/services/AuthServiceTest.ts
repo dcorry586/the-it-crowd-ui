@@ -35,7 +35,7 @@ describe('AuthService', function () {
     });
 
     it('Login user, should throw an error, when invalid login details are sent.', async () => {
-        mock.onPost('/api/auth/login', userAccount).reply(500, new Error('Unable To Login.'));
+        mock.onPost('/api/auth/login', userAccount).reply(500,'Unable To Login.');
 
         let error:string;
         try {
