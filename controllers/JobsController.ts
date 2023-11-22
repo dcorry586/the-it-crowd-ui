@@ -12,6 +12,7 @@ module.exports = function(app: Application) {
         } catch (e) {
             console.error(e);
         }
-        res.render('pages/jobTitles',{jobs, pageTitle: 'Job Roles'});
+        const { token } = req.session;
+        res.render('pages/jobTitles',{jobs, pageTitle: 'Job Roles', token});
     });
 };
