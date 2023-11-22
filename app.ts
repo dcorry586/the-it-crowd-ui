@@ -4,7 +4,7 @@ const express = require('express');
 const app: Application = express();
 const path = require('path');
 const session = require('express-session');
-const authMiddleware = require('./middleware/auth');
+const authMiddleware = require('./middleware/Authentication');
 
 app.set('views', './views');
 app.set('view engine', 'ejs');

@@ -2,7 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 
 module.exports = function (req: Request, res: Response, next: NextFunction) {
     if (res.locals.sessionValid) {
-
         let token: String = req.session.token;
 
         const base64String = token.split('.')[1];
