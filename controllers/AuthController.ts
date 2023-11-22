@@ -18,7 +18,6 @@ module.exports = function (app: Application) {
             res.redirect('/');
 
         } catch (e) {
-            // console.log(e)
             res.locals.errormessage = e.message;
             let payload = {
                 pageTitle: 'Failed Login'
