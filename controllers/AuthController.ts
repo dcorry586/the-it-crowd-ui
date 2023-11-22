@@ -13,16 +13,18 @@ module.exports = function (app: Application) {
             let data: Login = req.body;
             let authService = new AuthService();
 
-            let tokenRes: String = await authService.loginInUser(data);
-            if (tokenRes == null) {
-                throw new Error('Failed To Get Token.');
-            }
-            req.session.token = tokenRes;
+            req.session.token = await authService.loginInUser(data);
+            // if (tokenRes == null) {
+            //     throw new Error('Failed To Get Token.');
+            // }
+            // req.session.token = tokenRes;
             res.redirect('/');
+
         } catch (e) {
+            // console.log(e)
+            res.locals.errormessage = e.message;
             let payload = {
-                pageTitle: 'Failed Login', errormessage: 'Login Failed',
-                token: req.session.token
+                pageTitle: 'Failed Login'
             };
             res.render('pages/login', payload);
         }

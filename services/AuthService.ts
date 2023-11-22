@@ -9,7 +9,13 @@ export default class AuthService {
             const response = await axiosInstance.post('/api/auth/login', login);
             return response.data;
         } catch (e) {
-            throw new Error('Unable To Login.');
+            if (typeof e.response != 'undefined' && typeof e.response.data != 'undefined') {
+                if (typeof e.response.data.code != 'undefined') {
+                    throw new Error('There has been a problem.');
+                }
+                throw new Error(e.response.data);
+            }
+            throw new Error('Could not login');
         }
     }
 }
