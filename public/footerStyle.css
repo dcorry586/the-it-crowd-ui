@@ -1,7 +1,7 @@
-/* Custom styling for footer s*/
+/* Custom styling for footer */
 .footer {
     margin-top: 80px;
-    height: 300px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,10 +40,20 @@
     margin-right: 10px;
 }
 
+.white-link {
+    color: white;
+    text-decoration: white;
+}
+
+.white-link:hover {
+    color: rgb(228, 228, 228);
+    cursor: pointer;
+}
+
 /* Media query for screens smaller than 491px, which is when the footer logo gets too big for screen */
 @media (max-width: 491px) {
     .footer-logo {
-        width: 120px; 
+        width: 100px; 
         margin-left: 10px;
     }
 }
