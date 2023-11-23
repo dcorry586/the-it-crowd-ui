@@ -1,4 +1,3 @@
-import axios from 'axios';
 import axiosInstance from '../config';
 import { Job } from '../models/Job';
 

@@ -24,6 +24,5 @@ module.exports = function(app: Application) {
             console.error(e);
             res.redirect('/jobs');
         }
-
-    })
+    });
 };
