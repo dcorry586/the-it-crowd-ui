@@ -3,12 +3,21 @@ import { Job } from '../models/Job';
 
 export default class JobService {
     async getJobs(): Promise<Job[]> {
-        try{
+        try {
             const response = await axiosInstance.get('/api/jobs');
             return response.data;
-        } catch(e){
+        } catch (e) {
             console.error(e);
             throw new Error('Could not get jobs');
+        }
+    }
+
+    async getJobById(id: number): Promise<Job> {
+        try {
+            const response = await axiosInstance.get(`/api/jobs/${id}`);
+            return response.data;
+        } catch (e) {
+            throw new Error('Could not get job');
         }
     }
 }

@@ -1,11 +1,11 @@
-import {Request, Response, Application} from 'express';
-import {Job} from '../models/Job';
+import { Request, Response, Application } from 'express';
+import { Job } from '../models/Job';
 import JobService from '../services/JobService';
 
 let jobService = new JobService();
 
-module.exports = function(app: Application) {
-    app.get('/jobs', async (req:Request,res:Response)=>{
+module.exports = function (app: Application) {
+    app.get('/jobs', async (req: Request, res: Response) => {
         let jobs: Job[] = [];
         try {
             jobs = await jobService.getJobs();
@@ -13,6 +13,18 @@ module.exports = function(app: Application) {
             console.error(e);
         }
         const { token } = req.session;
-        res.render('pages/jobTitles',{jobs, pageTitle: 'Job Roles', token});
+        res.render('pages/jobTitles', { jobs, pageTitle: 'Job Roles', token });
+    });
+
+    app.get('/jobs/:id', async (req: Request, res: Response) => {
+        const id = req.params.id;
+        let job: Job;
+        try {
+            job = await jobService.getJobById(Number(id));
+        } catch (e) {
+            console.error(e);
+        }
+        const { token } = req.session;
+        res.render('pages/job', { job, pageTitle: 'Job', token });
     });
 };
