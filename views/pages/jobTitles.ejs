@@ -31,12 +31,7 @@
                   - (No Capability Stored)
                 <% } %>
               </a>
-
-              <form action="/jobs/<%= job.jobId %>" method="post" id="delete-form">
-                <button type="submit" class="btn btn-danger" id="delete-button" onclick="areYouSure('<%= job.jobName %>');">Delete</button>
-              </form>
             </li>
-
             <% } %>
           <% } else { %>
             <li>No jobs currently available</li>
