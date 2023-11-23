@@ -15,7 +15,7 @@ module.exports = function (app: Application) {
         const { token } = req.session;
         res.render('pages/jobTitles', { jobs, pageTitle: 'Job Roles', token });
     });
-    
+
     app.get('/jobs/:id', async (req: Request, res: Response) => {
         const id = req.params.id;
         let job: Job;
