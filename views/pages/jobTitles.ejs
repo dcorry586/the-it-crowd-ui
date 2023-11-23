@@ -36,10 +36,6 @@
                 <a href="/jobs/<%= job.jobId %>">
                   <%= job.jobName %> - <%= job.bandName %>
                 </a>
-                <form action="/jobs/<%= job.jobId %>" method="post" id="delete-form">
-                  <button type="submit" class="btn btn-danger" id="delete-button"
-                    onclick="areYouSure('<%= job.jobName %>');">Delete</button>
-                </form>
               </li>
 
               <% } %>
@@ -56,24 +52,4 @@
   </div>
 
   <%- include('../templates/components/common-footer'); %>
-
-    <script>
-      function areYouSure(jobName) {
-        const deleteButton = document.getElementById("delete-button");
-        const deleteForm = document.getElementById("delete-form");
-
-        // Show a confirmation message
-        const confirmDelete = confirm("Are you sure you want to delete this job?");
-
-        // If the user clicks yes, show a pop-up message and submit the form
-        if (confirmDelete) {
-          alert(`${jobName} was deleted`);
-          deleteForm.submit();
-        } else {
-          // If the user clicks no, then do nothing
-          event.preventDefault();
-        }
-      }
-    </script>
-
 </html>

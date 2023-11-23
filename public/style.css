@@ -176,6 +176,10 @@ li a:hover {
     float: left;
 }
 
+.custom-button-margin {
+    margin-bottom: 10px;
+}
+
 /* Media query for screens smaller than 991px, which is when the navbar turns into a burger bar */
 @media (max-width: 991px) {
     .text-overlay h1 {
