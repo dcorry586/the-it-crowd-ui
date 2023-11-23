@@ -12,8 +12,10 @@ module.exports = function (app: Application) {
         } catch (e) {
             console.error(e);
         }
-        res.render('pages/jobTitles', { jobs, pageTitle: 'Job Roles' });
+        const { token } = req.session;
+        res.render('pages/jobTitles', { jobs, pageTitle: 'Job Roles', token });
     });
+    
     app.get('/jobs/:id', async (req: Request, res: Response) => {
         const id = req.params.id;
         let job: Job;
@@ -22,6 +24,7 @@ module.exports = function (app: Application) {
         } catch (e) {
             console.error(e);
         }
-        res.render('pages/job', { job, pageTitle: 'Job' });
+        const { token } = req.session;
+        res.render('pages/job', { job, pageTitle: 'Job', token });
     });
 };
