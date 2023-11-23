@@ -27,4 +27,15 @@ module.exports = function (app: Application) {
         const { token } = req.session;
         res.render('pages/job', { job, pageTitle: 'Job', token });
     });
+
+    app.post('/jobs/:id', async(req: Request, res: Response) => {
+        try {
+            await jobService.deleteJobRole(Number(req.params.id));
+            res.redirect('/jobs');
+        } catch (e) {
+            console.error(e);
+            res.redirect('/jobs');
+        }
+
+    });
 };
