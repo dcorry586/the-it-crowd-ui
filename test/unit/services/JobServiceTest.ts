@@ -68,4 +68,24 @@ describe('JobService', function () {
         expect(error).to.deep.equal(new Error('Could not get job capabilities'));
     });
 
+    it('Get job by id should return a job from the API', async () => {
+        const id: number = 1;
+        mock.onGet(`/api/jobs/${id}`).reply(200, job);
+
+        let result: Job = await jobService.getJobById(id);
+
+        expect(result).to.deep.equal(job);
+    });
+
+    it('should throw an error when the API returns a non-200 status', async () => {
+        const id: number = 111;
+        mock.onGet(`/api/jobs/${id}`).reply(new Error('Could not get jobs'));
+        let error: string;
+        try {
+            await jobService.getJobById(id);
+        } catch (e) {
+            error = e;
+        }
+        expect(String(error)).to.equal('Error: Could not get job');
+    });
 });
