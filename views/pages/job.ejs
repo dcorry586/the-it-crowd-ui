@@ -37,14 +37,35 @@
       <%= job.jobName %>
     </p>
 
-    <h2>Job Spec</h2>
     <a href="<%= job.jobSpecUrl%>" target="_blank">
-      <button class="custom-button">
-        View
+      <button class="custom-button custom-button-margin">
+        View Job Specification
       </button>
     </a>
+    <form action="/jobs/<%= job.jobId %>" method="post" id="delete-form">
+      <button type="submit" class="btn btn-danger custom-button-margin" id="delete-button delete-job-role" onclick="areYouSure('<%= job.jobName %>');">Delete Job Role</button>
+    </form>
   </div>
 
   <%- include('../templates/components/common-footer'); %>
+
+  <script>
+    function areYouSure(jobName) {
+        const deleteButton = document.getElementById("delete-button");
+        const deleteForm = document.getElementById("delete-form");
+
+        // Show a confirmation message
+        const confirmDelete = confirm("Are you sure you want to delete this job?");
+
+        // If the user clicks yes, show a pop-up message and submit the form
+        if (confirmDelete) {
+            alert(`${jobName} was deleted`);
+            deleteForm.submit();
+        } else {
+            // If the user clicks no, then do nothing
+            event.preventDefault();
+        }
+    }
+</script>
 
 </html>
