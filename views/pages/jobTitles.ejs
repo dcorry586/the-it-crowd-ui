@@ -27,17 +27,21 @@
           <% if (jobs.length> 0) { %>
             <% for (let job of jobs) { %>
 
-              <li>
+            <li>
                 <a href="/jobs/<%= job.jobId %>">
                   <%= job.jobName %>
                 </a>
               </li>
               <li>
-                <a href="/jobs/<%= job.jobId %>">
-                  <%= job.jobName %> - <%= job.bandName %>
-                </a>
-              </li>
-
+              <a href="/jobs/<%= job.jobId %>">
+                <%= job.jobName %> - <%= job.bandName %>
+                <% if (job.jobCapabilityName != 'undefined') { %>
+                  - <%= job.jobCapabilityName %>
+                <% } else { %>
+                  - (No Capability Stored)
+                <% } %>
+              </a>
+            </li>
               <% } %>
                 <% } else { %>
                   <li>No jobs currently available</li>

@@ -10,6 +10,7 @@ module.exports = function (app: Application) {
         let jobs: Job[] = [];
         try {
             jobs = await jobService.getJobs();
+
         } catch (e) {
             console.error(e);
         }
