@@ -1,5 +1,6 @@
 import axiosInstance from '../config';
 import { Job } from '../models/Job';
+import { JobRole } from '../models/JobRole';
 import { JobCapabilities } from '../models/JobCapabilities';
 
 export default class JobService {
@@ -8,7 +9,6 @@ export default class JobService {
             const response = await axiosInstance.get('/api/jobs');
             return response.data;
         } catch (e) {
-            console.error(e);
             throw new Error('Could not get jobs');
         }
     }
@@ -22,7 +22,7 @@ export default class JobService {
         }
     }
 
-    async getJobById(id: number): Promise<Job> {
+    async getJobById(id: number): Promise<JobRole> {
         try {
             const response = await axiosInstance.get(`/api/jobs/${id}`);
             return response.data;

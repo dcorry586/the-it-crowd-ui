@@ -3,6 +3,7 @@ import JobService from '../../../services/JobService';
 import axiosInstance from '../../../config';
 import { Job } from '../../../models/Job';
 import { JobCapabilities } from '../../../models/JobCapabilities';
+import {JobRole} from '../../../models/JobRole';
 let MockAdapter = require('axios-mock-adapter');
 let chai = require('chai');
 const expect = chai.expect;
@@ -72,7 +73,7 @@ describe('JobService', function () {
         const id: number = 1;
         mock.onGet(`/api/jobs/${id}`).reply(200, job);
 
-        let result: Job = await jobService.getJobById(id);
+        let result: JobRole = await jobService.getJobById(id);
 
         expect(result).to.deep.equal(job);
     });
