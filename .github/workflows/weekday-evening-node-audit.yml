@@ -1,8 +1,10 @@
 name: "NPM Audit"
 
 on:
-  schedule:
-    - cron: "0 22 31 2 *"
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   audit:
